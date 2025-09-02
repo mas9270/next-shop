@@ -76,7 +76,7 @@ export const metadata: Metadata = {
 type Lang = "en" | "fa";
 
 export function generateStaticParams() {
-  return [{ lang: "en" }, { lang: "fa" }] as const;
+  return [{ lang: "en" }, { lang: "fa" }];
 }
 
 export default async function RootLayout({
@@ -84,10 +84,10 @@ export default async function RootLayout({
   params,
 }: Readonly<{
   children: React.ReactNode;
-  params: { lang: Lang } | Promise<{ lang: Lang }>;
+  params: { lang: string }; // ❌ دیگه Promise اینجا نمی‌زنیم
 }>) {
-  const resolvedParams = await params; // ← dev و prod هر دو ساپورت میشن
-  const lang = (resolvedParams.lang as Lang) ?? "en";
+  const resolved = await Promise.resolve(params);
+  const lang = (resolved.lang as Lang) ?? "en";
 
   return (
     <html
