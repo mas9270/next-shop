@@ -5,7 +5,6 @@ import Layout from "@/components/layout/layout";
 import { ThemeProvider } from "@/providers/themeProvider";
 import StoreProvider from "@/providers/storeProvider";
 import LangConfig from "@/components/custom/LangConfig";
-import { Suspense } from "react";
 import { ToastContainer } from "react-toastify";
 
 const iranSanse = localFont({
@@ -75,23 +74,24 @@ export const metadata: Metadata = {
 
 type Lang = "en" | "fa";
 
-// export function generateStaticParams() {
-//   return [{ lang: "en" }, { lang: "fa" }];
-// }
+export function generateStaticParams() {
+  return [{ lang: "en" }, { lang: "fa" }];
+}
 
 export default function RootLayout({
   children,
-}: // params,
+  params,
+}: 
 Readonly<{
   children: React.ReactNode;
-  // params: { lang: Lang };
+  params: { lang: Lang };
 }>) {
-  // const { lang } = params;
+  const { lang } = params;
 
   return (
     <html
       lang={"fa"}
-      // dir={lang === "fa" ? "rtl" : "ltr"}
+      dir={lang === "fa" ? "rtl" : "ltr"}
       suppressHydrationWarning
     >
       <body className={`${iranSanse.className} `}>
@@ -103,7 +103,7 @@ Readonly<{
             disableTransitionOnChange
           >
             <ToastContainer />
-            {/* <LangConfig lang={lang} /> */}
+            <LangConfig lang={lang} />
             <Layout lang={"fa"}>{children}</Layout>
           </ThemeProvider>
         </StoreProvider>
