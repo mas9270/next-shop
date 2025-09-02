@@ -90,7 +90,7 @@ Readonly<{
 
   return (
     <html
-      lang={"fa"}
+      lang={lang}
       dir={lang === "fa" ? "rtl" : "ltr"}
       suppressHydrationWarning
     >
@@ -104,7 +104,7 @@ Readonly<{
           >
             <ToastContainer />
             <LangConfig lang={lang} />
-            <Layout lang={"fa"}>{children}</Layout>
+            <Layout lang={lang}>{children}</Layout>
           </ThemeProvider>
         </StoreProvider>
       </body>
