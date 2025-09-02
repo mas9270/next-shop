@@ -75,9 +75,10 @@ export const metadata: Metadata = {
   description: "فست فود rasmas",
 };
 
-export async function generateStaticParams() {
-  return [{ lang: "en" }, { lang: "fa" }];
+export function generateStaticParams() {
+  return [{ lang: "en" }, { lang: "fa" }] as const; // ← readonly tuple برای تایپ ایمن
 }
+
 
 export default function RootLayout({
   children,
