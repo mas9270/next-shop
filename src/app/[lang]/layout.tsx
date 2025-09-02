@@ -8,8 +8,6 @@ import LangConfig from "@/components/custom/LangConfig";
 import { Suspense } from "react";
 import { ToastContainer } from "react-toastify";
 
-type Lang = "en" | "fa";
-
 const iranSanse = localFont({
   src: [
     {
@@ -75,19 +73,20 @@ export const metadata: Metadata = {
   description: "فست فود rasmas",
 };
 
+type Lang = "en" | "fa";
+
 export function generateStaticParams() {
-  return [{ lang: "en" }, { lang: "fa" }] as const; // ← readonly tuple برای تایپ ایمن
+  return [{ lang: "en" }, { lang: "fa" }] as const;
 }
 
-export default async function RootLayout({
+export default function RootLayout({
   children,
   params,
 }: Readonly<{
   children: React.ReactNode;
-  params: { lang: Lang } | Promise<{ lang: Lang }>;
+  params: { lang: string };
 }>) {
-  const resolvedParams = await params; // ← این خط مهمه
-  const lang = resolvedParams.lang;
+  const lang = params.lang as Lang; // ← cast کردن
 
   return (
     <html
