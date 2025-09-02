@@ -104,9 +104,7 @@ export default function RootLayout({
           >
             <ToastContainer />
             <LangConfig lang={lang} />
-            <Suspense fallback={<div>لطفا شکیبا باشید</div>}>
-              <Layout lang={lang}>{children}</Layout>
-            </Suspense>
+            <Layout lang={lang}>{children}</Layout>
           </ThemeProvider>
         </StoreProvider>
       </body>
