@@ -75,23 +75,23 @@ export const metadata: Metadata = {
 
 type Lang = "en" | "fa";
 
-export function generateStaticParams() {
-  return [{ lang: "en" }, { lang: "fa" }];
-}
+// export function generateStaticParams() {
+//   return [{ lang: "en" }, { lang: "fa" }];
+// }
 
 export default function RootLayout({
   children,
-  params,
-}: Readonly<{
+}: // params,
+Readonly<{
   children: React.ReactNode;
-  params: { lang: Lang };
+  // params: { lang: Lang };
 }>) {
-  const { lang } = params;
+  // const { lang } = params;
 
   return (
     <html
-      lang={lang}
-      dir={lang === "fa" ? "rtl" : "ltr"}
+      lang={"fa"}
+      // dir={lang === "fa" ? "rtl" : "ltr"}
       suppressHydrationWarning
     >
       <body className={`${iranSanse.className} `}>
@@ -104,7 +104,7 @@ export default function RootLayout({
           >
             <ToastContainer />
             {/* <LangConfig lang={lang} /> */}
-            <Layout lang={lang}>{children}</Layout>
+            <Layout lang={"fa"}>{children}</Layout>
           </ThemeProvider>
         </StoreProvider>
       </body>
