@@ -86,7 +86,7 @@ export default function RootLayout({
   children: React.ReactNode;
   params: { lang: Lang };
 }>) {
-  const lang = params.lang as Lang;
+  const lang = params.lang;
 
   return (
     <html
