@@ -3,6 +3,10 @@ import localFont from "next/font/local";
 import "../globals.css";
 import Layout from "@/components/layout/layout";
 import { ThemeProvider } from "@/providers/themeProvider";
+import StoreProvider from "@/providers/storeProvider";
+import LangConfig from "@/components/custom/LangConfig";
+import { Suspense } from "react";
+import { ToastContainer } from "react-toastify";
 
 const iranSanse = localFont({
   src: [
@@ -81,6 +85,7 @@ export default async function RootLayout({
   params: Promise<{ lang: "en" | "fa" }>;
 }>) {
   const { lang } = await params;
+
   return (
     <html
       lang={lang}
@@ -88,14 +93,20 @@ export default async function RootLayout({
       suppressHydrationWarning
     >
       <body className={`${iranSanse.className} `}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="dark"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <Layout lang={lang}>{children}</Layout>
-        </ThemeProvider>
+        <StoreProvider>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="dark"
+            enableSystem
+            disableTransitionOnChange
+          >
+            <ToastContainer />
+            <LangConfig lang={lang} />
+            <Suspense fallback={<div>لطفا شکیبا باشید</div>}>
+              <Layout lang={lang}>{children}</Layout>
+            </Suspense>
+          </ThemeProvider>
+        </StoreProvider>
       </body>
     </html>
   );

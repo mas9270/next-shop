@@ -1,6 +1,8 @@
 import Image from "next/image";
 import LanguageSwitcher from "../custom/LanguageSwitcher";
 import { ToggleTheme } from "../custom/toggleTheme";
+import UserConfig from "../custom/userConfig";
+import NavLink from "../custom/navLink";
 
 export default function header(props: { lang: "fa" | "en" }) {
   return (
@@ -14,10 +16,12 @@ export default function header(props: { lang: "fa" | "en" }) {
             height={25}
             className="rounded-[100%] bg-white"
           />
+           <NavLink />
         </div>
         <div className="flex gap-2 items-center">
           <ToggleTheme />
           <LanguageSwitcher currentLang={props.lang} />
+          <UserConfig lang={props.lang} />
         </div>
       </nav>
     </header>

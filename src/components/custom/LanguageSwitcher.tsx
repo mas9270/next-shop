@@ -20,13 +20,13 @@ export default function LanguageSwitcher({
     <Button
       variant="outline"
       size="sm"
-      className="flex items-center space-x-2"
+      className="flex items-center"
       onClick={toggleLang}
     >
       {currentLang === "en" ? (
-        <span className="text-md font-bold">FA</span>
+        <span className="text-md">FA</span>
       ) : (
-        <span className="text-md font-bold">EN</span>
+        <span className="text-md">EN</span>
       )}
     </Button>
   );

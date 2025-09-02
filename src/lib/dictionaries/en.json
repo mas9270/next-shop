@@ -1,0 +1,13 @@
+{
+  "register": "sign up",
+  "login": "sign in",
+  "email": "email",
+  "username": "username",
+  "password": "password",
+  "save": "save",
+  "emailNotValid": "email is not valid",
+  "usernameNotValid": "username is not valid",
+  "passwordNotValid": "password is not valid",
+  "loginForm": "sign in form",
+  "registerForm": "sign up form"
+}

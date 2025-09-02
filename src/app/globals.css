@@ -1,5 +1,11 @@
+@import url("../../public/fonts/IranSansX/Webfonts/fontiran.css");
 @import "tailwindcss";
 @import "tw-animate-css";
+
+.Toastify__toast-body {
+  font-family: IRANSansX; /* فونت مورد نظر خودت */
+  font-size: 16px; /* می‌توانید سایز را هم تغییر دهید */
+}
 
 @custom-variant dark (&:is(.dark *));
 

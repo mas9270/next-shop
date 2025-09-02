@@ -1,0 +1,13 @@
+{
+  "register": "ثبت نام",
+  "login": "ورود",
+  "email": "ایمیل",
+  "username": "نام کاربری",
+  "password": "کلمه عبور",
+  "save": "ذخیره",
+  "emailNotValid": "ایمیل معتبر نمی باشد",
+  "usernameNotValid": "نام کاربری معتبر نمی باشد",
+  "passwordNotValid": "کلمه عبور معتبر نمی باشد",
+  "loginForm": "فرم ورود",
+  "registerForm": "فرم ثبت نام"
+}
