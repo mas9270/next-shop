@@ -103,7 +103,7 @@ export default function RootLayout({
             disableTransitionOnChange
           >
             <ToastContainer />
-            <LangConfig lang={lang} />
+            {/* <LangConfig lang={lang} /> */}
             <Layout lang={lang}>{children}</Layout>
           </ThemeProvider>
         </StoreProvider>
