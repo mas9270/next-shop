@@ -1,8 +1,4 @@
-export default async function HomePage({}: {
-  // params: Promise<{ lang: "en" | "fa" }>;
-}) {
-  // const { lang } = await params;
-  // const dict = await getDictionary(lang);
+export default async function HomePage() {
   return (
     <div className="">
       <h1>خانه</h1>

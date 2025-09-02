@@ -75,9 +75,9 @@ export const metadata: Metadata = {
 
 type Lang = "en" | "fa";
 
-// export function generateStaticParams() {
-//   return [{ lang: "en" }, { lang: "fa" }];
-// }
+export function generateStaticParams() {
+  return [{ lang: "en" }, { lang: "fa" }];
+}
 
 export default function RootLayout({
   children,
