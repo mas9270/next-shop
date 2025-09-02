@@ -1,10 +1,7 @@
-import { getDictionary } from "../../lib/dictionaries";
-export default async function HomePage({
-  params,
-}: {
-  params: Promise<{ lang: "en" | "fa" }>;
+export default async function HomePage({}: {
+  // params: Promise<{ lang: "en" | "fa" }>;
 }) {
-  const { lang } = await params;
+  // const { lang } = await params;
   // const dict = await getDictionary(lang);
   return (
     <div className="">
