@@ -16,15 +16,15 @@ export default function CustomModal(props: {
   return (
     <Dialog
       open={open}
-      onOpenChange={(Value: undefined) => {
+      onOpenChange={() => {
         if (onClose) {
-          onClose(Value);
+          onClose(false);
         }
       }}
     >
       <DialogContent
         className={`[&>button]:hidden p-0 w-[700px]`}
-        onInteractOutside={(e: React.FormEvent<HTMLFormElement>) => {
+        onInteractOutside={(e) => {
           e?.preventDefault();
         }}
       >
