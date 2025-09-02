@@ -79,14 +79,15 @@ export function generateStaticParams() {
   return [{ lang: "en" }, { lang: "fa" }] as const;
 }
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
   params,
 }: Readonly<{
   children: React.ReactNode;
-  params: { lang: string };
+  params: { lang: string } | Promise<{ lang: string }>;
 }>) {
-  const lang = params.lang as Lang; // ← cast کردن
+  const resolvedParams = await params; // ← dev و prod هر دو ساپورت میشن
+  const lang = (resolvedParams.lang as Lang) ?? "en";
 
   return (
     <html
