@@ -84,7 +84,7 @@ export default async function RootLayout({
   params,
 }: Readonly<{
   children: React.ReactNode;
-  params: { lang: string } | Promise<{ lang: string }>;
+  params: { lang: Lang } | Promise<{ lang: Lang }>;
 }>) {
   const resolvedParams = await params; // ← dev و prod هر دو ساپورت میشن
   const lang = (resolvedParams.lang as Lang) ?? "en";
