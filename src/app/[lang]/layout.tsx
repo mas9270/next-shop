@@ -84,10 +84,10 @@ export default async function RootLayout({
   params,
 }: Readonly<{
   children: React.ReactNode;
-  params: { lang: string }; // ❌ دیگه Promise اینجا نمی‌زنیم
+  params: { lang: Lang } | Promise<{ lang: Lang }>;
 }>) {
-  const resolved = await Promise.resolve(params);
-  const lang = (resolved.lang as Lang) ?? "en";
+  const resolvedParams = await params;
+  const lang = resolvedParams.lang ?? "en";
 
   return (
     <html
