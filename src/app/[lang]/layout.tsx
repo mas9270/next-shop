@@ -79,14 +79,14 @@ type Lang = "en" | "fa";
 //   return [{ lang: "en" }, { lang: "fa" }];
 // }
 
-export default async function RootLayout({
+export default function RootLayout({
   children,
   params,
 }: Readonly<{
   children: React.ReactNode;
-  params: Promise<{ lang: Lang }>;
+  params: { lang: Lang };
 }>) {
-  const { lang } = await params;
+  const { lang } = params;
 
   return (
     <html
