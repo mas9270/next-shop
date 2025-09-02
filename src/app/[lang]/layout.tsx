@@ -79,15 +79,15 @@ export function generateStaticParams() {
   return [{ lang: "en" }, { lang: "fa" }] as const; // ← readonly tuple برای تایپ ایمن
 }
 
-
-export default function RootLayout({
+export default async function RootLayout({
   children,
   params,
 }: Readonly<{
   children: React.ReactNode;
-  params: { lang: Lang };
+  params: { lang: Lang } | Promise<{ lang: Lang }>;
 }>) {
-  const lang = params.lang;
+  const resolvedParams = await params; // ← این خط مهمه
+  const lang = resolvedParams.lang;
 
   return (
     <html
