@@ -20,7 +20,7 @@ export default function header() {
         </div>
         <div className="flex gap-2 items-center">
           <ToggleTheme />
-          <LanguageSwitcher />
+          {/* <LanguageSwitcher /> */}
           <UserConfig  />
         </div>
       </nav>

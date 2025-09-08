@@ -67,7 +67,7 @@ export default function FooterPage() {
               09152238077
             </li>
             <li className="flex items-center justify-center md:justify-start gap-2">
-              <MapPin className="w-5 h-5" /> مشهد، ایران
+              <MapPin className="w-5 h-5" /> ایران , مشهد
             </li>
           </ul>
         </div>

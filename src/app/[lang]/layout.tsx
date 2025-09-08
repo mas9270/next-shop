@@ -1,9 +1,12 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
-import "../globals.css";
 import Layout from "@/components/layout/layout";
 import { ThemeProvider } from "@/providers/themeProvider";
 import StoreProvider from "@/providers/storeProvider";
+import "../globals.css";
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
 
 const iranSanse = localFont({
   src: [

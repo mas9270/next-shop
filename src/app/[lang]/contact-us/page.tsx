@@ -27,7 +27,6 @@ export default function ContactUs() {
   });
 
   const onSubmit = (data: ContactFormValues) => {
-    console.log("Form Data:", data);
     alert("پیام شما با موفقیت ارسال شد!");
   };
 
@@ -92,7 +91,7 @@ export default function ContactUs() {
         <div>
           <MapPin className="mx-auto mb-2 w-6 h-6" />
           <h3 className="text-2xl font-bold mb-2">آدرس</h3>
-          <p className="text-gray-600 dark:text-gray-300">مشهد، ایران</p>
+          <p className="text-gray-600 dark:text-gray-300">ایران , مشهد</p>
         </div>
       </section>
 
