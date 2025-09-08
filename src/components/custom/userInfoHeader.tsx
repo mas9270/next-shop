@@ -9,13 +9,13 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { useRouter } from "next/navigation";
-import { useAppSelector } from "@/store/hooks";
+import { useAppDispatch, useAppSelector } from "@/store/hooks";
+import { checkToken } from "@/store/slices/userInfo";
 
-export default function UserInfoHeader(props: {
-  tokenInfo: Record<string, unknown> | null;
-}) {
-  const { tokenInfo } = props;
-  const lang = useAppSelector((state) => state.lang.lang);
+export default function UserInfoHeader() {
+  const { data } = useAppSelector((state) => state.userInfo);
+  const { locale, dictionary } = useAppSelector((state) => state.lang);
+  const dispatch = useAppDispatch();
   const router = useRouter();
 
   function exit() {
@@ -23,7 +23,7 @@ export default function UserInfoHeader(props: {
       method: "POST",
       body: JSON.stringify({}),
     }).then(() => {
-      window.location.reload();
+      dispatch(checkToken());
     });
   }
 
@@ -33,7 +33,7 @@ export default function UserInfoHeader(props: {
         <Avatar>
           <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
           <AvatarFallback>
-            <>{tokenInfo ? tokenInfo?.username : ""}</>
+            <>{data ? data?.username : ""}</>
           </AvatarFallback>
         </Avatar>
       </DropdownMenuTrigger>
@@ -44,26 +44,26 @@ export default function UserInfoHeader(props: {
             e.preventDefault();
           }}
         >
-          <>{tokenInfo ? tokenInfo?.email : ""}</>
+          <>{data ? data?.email : ""}</>
         </DropdownMenuItem>
 
-        {tokenInfo?.role === "ADMIN" && (
+        {data?.role === "ADMIN" && (
           <DropdownMenuItem
             onClick={(e) => {
-              router.push(`/${lang}/dashboard`);
+              router.push(`/${locale}/dashboard`);
             }}
           >
-            پنل مدیریت
+            {dictionary.adminPanel}
           </DropdownMenuItem>
         )}
 
-        {tokenInfo?.role ? (
+        {data?.role ? (
           <DropdownMenuItem
             onClick={(e) => {
-              router.push(`/${lang}/profile`);
+              router.push(`/${locale}/profile`);
             }}
           >
-            پروفایل
+            {dictionary.profile}
           </DropdownMenuItem>
         ) : null}
 
@@ -72,7 +72,7 @@ export default function UserInfoHeader(props: {
             exit();
           }}
         >
-          خروج
+          {dictionary.logout}
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>

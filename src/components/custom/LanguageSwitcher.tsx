@@ -1,19 +1,17 @@
-"use client"; 
+"use client";
 import { useRouter, usePathname } from "next/navigation";
 import { Button } from "@/components/ui/button";
+import { useAppSelector } from "@/store/hooks";
 
-export default function LanguageSwitcher({
-  currentLang,
-}: {
-  currentLang: "en" | "fa";
-}) {
+export default function LanguageSwitcher() {
+  const { locale } = useAppSelector((state) => state.lang);
   const router = useRouter();
   const pathname = usePathname();
 
   const toggleLang = () => {
-    const newLang = currentLang === "en" ? "fa" : "en";
-    const newPath = pathname.replace(`/${currentLang}`, `/${newLang}`);
-    router.push(newPath)
+    const newLang = locale === "en" ? "fa" : "en";
+    const newPath = pathname.replace(`/${locale}`, `/${newLang}`);
+    router.push(newPath);
   };
 
   return (
@@ -23,7 +21,7 @@ export default function LanguageSwitcher({
       className="flex items-center"
       onClick={toggleLang}
     >
-      {currentLang === "en" ? (
+      {locale === "en" ? (
         <span className="text-md">FA</span>
       ) : (
         <span className="text-md">EN</span>

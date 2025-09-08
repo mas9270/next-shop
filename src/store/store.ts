@@ -1,15 +1,17 @@
 import { configureStore, ThunkAction, Action } from "@reduxjs/toolkit";
-import langSlice from "./slices/lang";
 import logger from "redux-logger";
+import langSlice from "./slices/lang";
+import userInfoSlice from "./slices/userInfo";
 
 export const makeStore = () => {
   return configureStore({
     reducer: {
       lang: langSlice,
+      userInfo: userInfoSlice,
     },
     middleware: (getDefaultMiddleware) =>
       process.env.NODE_ENV === "development"
-        ? getDefaultMiddleware().concat(logger)
+        ? getDefaultMiddleware() //.concat(logger)
         : getDefaultMiddleware(), // اضافه کردن redux-logger به middleware
   });
 };

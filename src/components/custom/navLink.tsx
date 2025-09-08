@@ -6,7 +6,7 @@ import { useAppSelector } from "@/store/hooks";
 
 export default function NavLink() {
   const path = usePathname();
-  const { lang, dictionary } = useAppSelector((state) => state.lang);
+  const { locale, dictionary } = useAppSelector((state) => state.lang);
 
   function convertTitle(title: string) {
     let content = "";
@@ -34,7 +34,7 @@ export default function NavLink() {
     <div className="flex">
       <div className="hidden gap-4 lg:flex">
         {appRoutes.map((item) => {
-          const href = item.path === "/" ? `/${lang}` : `/${lang}${item.path}`;
+          const href = item.path === "/" ? `/${locale}` : `/${locale}${item.path}`;
           return (
             <Link
               key={item.path}

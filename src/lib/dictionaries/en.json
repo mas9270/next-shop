@@ -13,5 +13,8 @@
   "home": "home",
   "products": "products",
   "aboutUs": "about us",
-  "contactUs": "contact us"
+  "contactUs": "contact us",
+  "adminPanel": "admin panel",
+  "profile": "profile",
+  "logout" :"logout"
 }

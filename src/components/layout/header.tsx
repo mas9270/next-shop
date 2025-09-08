@@ -4,7 +4,7 @@ import { ToggleTheme } from "../custom/toggleTheme";
 import UserConfig from "../custom/userConfig";
 import NavLink from "../custom/navLink";
 
-export default function header(props: { lang: "fa" | "en" }) {
+export default function header() {
   return (
     <header className="w-full py-3 shadow flex justify-center dark:shadow-gray-700">
       <nav className="w-full flex justify-between max-w-5xl px-3">
@@ -13,15 +13,15 @@ export default function header(props: { lang: "fa" | "en" }) {
             src={"/images/logo2.png"}
             alt="logo"
             width={50}
-            height={25}
+            height={50}
             className="rounded-[100%] bg-white"
           />
            <NavLink />
         </div>
         <div className="flex gap-2 items-center">
           <ToggleTheme />
-          <LanguageSwitcher currentLang={props.lang} />
-          <UserConfig lang={props.lang} />
+          <LanguageSwitcher />
+          <UserConfig  />
         </div>
       </nav>
     </header>

@@ -10,7 +10,7 @@ export default function LangConfig(props: { lang: "fa" | "en" }) {
   useEffect(() => {
     async function getLang() {
       const dict = await getDictionary(props.lang);
-      dispatch(setLang({ lang: props.lang, dictionary: dict }));
+      dispatch(setLang({ locale: props.lang, dictionary: dict }));
     }
 
     getLang();

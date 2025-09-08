@@ -13,5 +13,8 @@
   "home": "خانه",
   "products": "محصولات",
   "aboutUs": "درباره ما",
-  "contactUs": "ارتباط با ما"
+  "contactUs": "ارتباط با ما",
+  "adminPanel": "پنل ادمین",
+  "profile": "پروفایل",
+  "logout": "خروج"
 }
