@@ -43,8 +43,7 @@ export default function LoginLogout() {
         title={signIn ? dictionary?.loginForm : dictionary?.registerForm}
         open={open}
         onClose={() => {
-          setOpen(false);
-          router.push("/");
+          setOpen(false)
         }}
       >
         {open ? (

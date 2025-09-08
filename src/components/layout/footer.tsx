@@ -38,17 +38,17 @@ export default function FooterPage() {
               </Link>
             </li>
             <li>
-              <Link href="/shop" className="hover:underline">
-                فروشگاه
+              <Link href="/products" className="hover:underline">
+                محصولات
               </Link>
             </li>
             <li>
-              <Link href="/about" className="hover:underline">
+              <Link href="/about-us" className="hover:underline">
                 درباره ما
               </Link>
             </li>
             <li>
-              <Link href="/contact" className="hover:underline">
+              <Link href="/contact-us" className="hover:underline">
                 ارتباط با ما
               </Link>
             </li>
@@ -60,7 +60,7 @@ export default function FooterPage() {
           <h3 className="text-lg font-bold">ارتباط با ما</h3>
           <ul className="space-y-3">
             <li className="flex items-center justify-center md:justify-start gap-2">
-              <Mail className="w-5 h-5" /> support@example.com
+              <Mail className="w-5 h-5" /> mas.ahm92@gmail.com
             </li>
             <li className="flex items-center justify-center md:justify-start gap-2">
               <Phone className="w-5 h-5" />
