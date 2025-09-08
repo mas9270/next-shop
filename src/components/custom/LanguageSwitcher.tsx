@@ -18,7 +18,7 @@ export default function LanguageSwitcher() {
     <Button
       variant="outline"
       size="sm"
-      className="flex items-center"
+      className="flex items-center cursor-pointer"
       onClick={toggleLang}
     >
       {locale === "en" ? (

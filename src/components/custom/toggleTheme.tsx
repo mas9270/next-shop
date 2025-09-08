@@ -12,7 +12,7 @@ export function ToggleTheme() {
     <Button
       variant="outline"
       size="sm"
-      className="flex items-center space-x-2"
+      className="flex items-center space-x-2 cursor-pointer"
       onClick={() => {
         setTheme(theme === "dark" ? "ligt" : "dark");
       }}
