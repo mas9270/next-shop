@@ -74,12 +74,16 @@ export default function AboutUsPage() {
         <h2 className="text-4xl font-extrabold text-center mb-12">تیم ما</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-12">
           {[
-            { name: "مسعود", role: "مدیر بخش توسعه", src: "/images/programer.jpg" },
-            { name: "رسا", role: "مدیر سازمان", src: "/images/modir1.jpg" },
+            {
+              name: "مسعود",
+              role: "مدیر بخش توسعه",
+              src: "/images/logo2.png",
+            },
+            { name: "رسا", role: "مدیر سازمان", src: "/images/logo2.png" },
           ].map((member, idx) => (
             <div
               key={idx}
-              className="p-6 rounded-xl shadow-sm hover:shadow-lg transition-shadow duration-300 text-center"
+              className="flex flex-col justify-center items-center p-6 rounded-xl shadow-sm hover:shadow-lg transition-shadow duration-300  "
             >
               <div className="w-32 h-32 rounded-full overflow-hidden">
                 <Image
