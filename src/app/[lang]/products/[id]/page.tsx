@@ -3,22 +3,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import Image from "next/image";
 import Link from "next/link";
 
-type Product = {
-  id: number;
-  title: string;
-  description: string;
-  image: string;
-  price: number; // اضافه شد
-};
-
-// تولید داده‌ها با price
-const products: Product[] = Array.from({ length: 25 }, (_, i) => ({
-  id: i + 1,
-  title: `محصول ${i + 1}`,
-  description: "این یک توضیح کوتاه برای محصول است تا کاربر با آن آشنا شود.",
-  image: `https://picsum.photos/seed/${i + 1}/300/200`,
-  price: (i + 1) * 100000, // قیمت نمونه به تومان
-}));
+import { products } from "@/constants/productsList";
 
 export default function ProductPage({ params }: { params: { id: string } }) {
   const product = products.find((p) => p.id === Number(params.id));
@@ -46,7 +31,9 @@ export default function ProductPage({ params }: { params: { id: string } }) {
           {/* اطلاعات محصول */}
           <CardContent className="flex flex-col justify-center space-y-6">
             <CardHeader className="p-0">
-              <CardTitle className="text-2xl font-bold">{product.title}</CardTitle>
+              <CardTitle className="text-2xl font-bold">
+                {product.title}
+              </CardTitle>
             </CardHeader>
 
             <p className="text-lg text-muted-foreground leading-relaxed">

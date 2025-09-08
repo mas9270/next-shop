@@ -3,6 +3,7 @@ import LanguageSwitcher from "../custom/LanguageSwitcher";
 import { ToggleTheme } from "../custom/toggleTheme";
 import UserConfig from "../custom/userConfig";
 import NavLink from "../custom/navLink";
+import CartIcon from "../custom/cartIcon";
 
 export default function header() {
   return (
@@ -19,6 +20,7 @@ export default function header() {
            <NavLink />
         </div>
         <div className="flex gap-2 items-center">
+          <CartIcon/>
           <ToggleTheme />
           {/* <LanguageSwitcher /> */}
           <UserConfig  />

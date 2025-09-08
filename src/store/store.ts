@@ -2,12 +2,14 @@ import { configureStore, ThunkAction, Action } from "@reduxjs/toolkit";
 import logger from "redux-logger";
 import langSlice from "./slices/lang";
 import userInfoSlice from "./slices/userInfo";
+import cartSlice from "./slices/cart";
 
 export const makeStore = () => {
   return configureStore({
     reducer: {
       lang: langSlice,
       userInfo: userInfoSlice,
+      cart: cartSlice,
     },
     middleware: (getDefaultMiddleware) =>
       process.env.NODE_ENV === "development"

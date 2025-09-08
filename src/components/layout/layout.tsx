@@ -5,6 +5,7 @@ import React from "react";
 import LangConfig from "../custom/LangConfig";
 import UserInfoConfig from "../custom/userInfoConfig";
 import { ToastContainer } from "react-toastify";
+import CartConfig from "../custom/cartConfig";
 
 export default function Layout(props: {
   children: React.ReactNode;
@@ -14,7 +15,8 @@ export default function Layout(props: {
   return (
     <>
       <LangConfig lang={lang} />
-      <UserInfoConfig/>
+      <UserInfoConfig />
+      <CartConfig />
       <ToastContainer />
       <div className="w-full flex flex-col min-h-screen">
         <Header />

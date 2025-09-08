@@ -12,24 +12,13 @@ import {
   PaginationItem,
   PaginationLink,
 } from "@/components/ui/pagination";
+import { addToCart } from "@/store/slices/cart";
 
-type Product = {
-  id: number;
-  title: string;
-  description: string;
-  image: string;
-  price: number;
-};
-
-const products: Product[] = Array.from({ length: 200 }, (_, i) => ({
-  id: i + 1,
-  title: `محصول ${i + 1}`,
-  description: "این یک توضیح کوتاه برای محصول است تا کاربر با آن آشنا شود.",
-  image: `https://picsum.photos/seed/${i + 1}/300/200`,
-  price: (i + 1) * 100000,
-}));
+import { products } from "@/constants/productsList";
+import { useAppDispatch } from "@/store/hooks";
 
 export default function ProductsPage() {
+  const dispatch = useAppDispatch();
   const router = useRouter();
   const searchParams = useSearchParams();
   const pageQuery = searchParams.get("page");
@@ -55,7 +44,8 @@ export default function ProductsPage() {
   const getVisiblePages = (currentPage: number, totalPages: number) => {
     const visible: (number | string)[] = [];
 
-    if (totalPages <= 6) return Array.from({ length: totalPages }, (_, i) => i + 1);
+    if (totalPages <= 6)
+      return Array.from({ length: totalPages }, (_, i) => i + 1);
 
     visible.push(1); // صفحه اول
 
@@ -91,7 +81,9 @@ export default function ProductsPage() {
               <CardTitle className="mt-3">{product.title}</CardTitle>
             </CardHeader>
             <CardContent className="flex flex-col justify-between flex-1">
-              <p className="text-sm text-muted-foreground mb-2">{product.description}</p>
+              <p className="text-sm text-muted-foreground mb-2">
+                {product.description}
+              </p>
               <p className="font-semibold text-primary mb-4">
                 {product.price.toLocaleString("fa-IR")} تومان
               </p>
@@ -101,7 +93,14 @@ export default function ProductsPage() {
                     نمایش محصول
                   </Button>
                 </Link>
-                <Button className="flex-1">افزودن به سبد</Button>
+                <Button
+                  className="flex-1"
+                  onClick={() => {
+                    dispatch(addToCart(product));
+                  }}
+                >
+                  افزودن به سبد
+                </Button>
               </div>
             </CardContent>
           </Card>
@@ -145,7 +144,9 @@ export default function ProductsPage() {
             <PaginationItem>
               <Button
                 variant="outline"
-                onClick={() => setCurrentPage((p) => Math.min(p + 1, totalPages))}
+                onClick={() =>
+                  setCurrentPage((p) => Math.min(p + 1, totalPages))
+                }
                 disabled={currentPage === totalPages}
               >
                 بعدی

@@ -6,27 +6,13 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Navigation } from "swiper/modules";
-type Product = {
-  id: number;
-  title: string;
-  description: string;
-  image: string;
-  price: number;
-};
+import { products } from "@/constants/productsList";
 
 const categories = [
-  { id: 1, name: "پرفروش‌ترین‌ها" },
+  { id: 1, name: "پرفروش‌ ترین‌ها" },
   { id: 2, name: "محصولات جدید" },
   { id: 3, name: "تخفیف ویژه" },
 ];
-
-const products: Product[] = Array.from({ length: 30 }, (_, i) => ({
-  id: i + 1,
-  title: `محصول ${i + 1}`,
-  description: "این یک توضیح کوتاه برای محصول است.",
-  image: `https://picsum.photos/seed/${i + 1}/300/200`,
-  price: (i + 1) * 100000,
-}));
 
 export default function HomePage() {
   return (
