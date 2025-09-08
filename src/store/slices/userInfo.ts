@@ -21,7 +21,7 @@ export const userInfo = createSlice({
     fetchUsersStart: (state) => {
       state.loading = true;
       state.error = null;
-      state.data = null;
+      state.data = state.data;
     },
     fetchUsersSuccess: (state, action) => {
       state.loading = false;

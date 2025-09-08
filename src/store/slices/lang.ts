@@ -5,11 +5,13 @@ import type { PayloadAction } from "@reduxjs/toolkit";
 type Locale = "fa" | "en";
 
 interface lang {
+  dir: "rtl" | "ltr";
   locale: Locale;
   dictionary: { [key: string]: string };
 }
 
 const initialState: lang = {
+  dir: "rtl",
   locale: "fa",
   dictionary: {},
 };
@@ -19,6 +21,7 @@ export const langSlice = createSlice({
   initialState,
   reducers: {
     setLang: (state, action: PayloadAction<lang>) => {
+      state.dir = action.payload.locale === "fa" ? "rtl" : "ltr";
       state.locale = action.payload.locale;
       state.dictionary = action.payload.dictionary;
     },

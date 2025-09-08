@@ -5,6 +5,7 @@ import UserInfoHeader from "./userInfoHeader";
 import LoginLogout from "./loginLogout";
 
 export default function UserConfig() {
-  const { data } = useAppSelector((state) => state.userInfo);
+  const { data, loading } = useAppSelector((state) => state.userInfo);
+  console.log(data,loading);
   return <div>{data ? <UserInfoHeader /> : <LoginLogout />}</div>;
 }
