@@ -19,6 +19,7 @@ model User {
   username String @unique
   email    String @unique
   password String
+  profilePicUrl String?
   role     Role   @default(CUSTOMER) // 👈 سطح دسترسی
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt

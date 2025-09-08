@@ -6,7 +6,29 @@ import { useAppSelector } from "@/store/hooks";
 
 export default function NavLink() {
   const path = usePathname();
-  const lang = useAppSelector((state) => state.lang.lang);
+  const { lang, dictionary } = useAppSelector((state) => state.lang);
+
+  function convertTitle(title: string) {
+    let content = "";
+    switch (title) {
+      case "home":
+        content = dictionary.home;
+        break;
+      case "products":
+        content = dictionary.products;
+        break;
+      case "about-us":
+        content = dictionary.aboutUs;
+        break;
+      case "contact-us":
+        content = dictionary.contactUs;
+        break;
+
+      default:
+        break;
+    }
+    return content;
+  }
 
   return (
     <div className="flex">
@@ -21,7 +43,7 @@ export default function NavLink() {
                 href === path ? "text-sky-500" : ""
               }`}
             >
-              {item.title}
+              {convertTitle(item.title)}
             </Link>
           );
         })}

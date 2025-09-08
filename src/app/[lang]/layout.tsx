@@ -4,8 +4,6 @@ import "../globals.css";
 import Layout from "@/components/layout/layout";
 import { ThemeProvider } from "@/providers/themeProvider";
 import StoreProvider from "@/providers/storeProvider";
-import LangConfig from "@/components/custom/LangConfig";
-import { ToastContainer } from "react-toastify";
 
 const iranSanse = localFont({
   src: [
@@ -78,7 +76,7 @@ export function generateStaticParams() {
   return [{ lang: "en" }, { lang: "fa" }];
 }
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
   params,
 }: 
@@ -86,7 +84,7 @@ Readonly<{
   children: React.ReactNode;
   params: { lang: Lang };
 }>) {
-  const { lang } = params;
+  const { lang } = await params;
 
   return (
     <html
@@ -102,8 +100,6 @@ Readonly<{
             enableSystem
             disableTransitionOnChange
           >
-            <ToastContainer />
-            <LangConfig lang={lang} />
             <Layout lang={lang}>{children}</Layout>
           </ThemeProvider>
         </StoreProvider>

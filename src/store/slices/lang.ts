@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
+// import { AppThunk } from "../store";
 
 type Locale = "fa" | "en";
 
@@ -13,7 +14,7 @@ const initialState: lang = {
   dictionary: {},
 };
 
-export const longSlice = createSlice({
+export const langSlice = createSlice({
   name: "lang",
   initialState,
   reducers: {
@@ -24,5 +25,17 @@ export const longSlice = createSlice({
   },
 });
 
-export const { setLang } = longSlice.actions;
-export default longSlice.reducer;
+// export const fetchUsers = (): AppThunk => async (dispatch) => {
+// try {
+//   dispatch(fetchUsersStart());
+//   const response = await axios.get<User[]>(
+//     "https://jsonplaceholder.typicode.com/users"
+//   );
+//   dispatch(fetchUsersSuccess(response.data));
+// } catch (error: any) {
+//   dispatch(fetchUsersFailure(error.message));
+// }
+// };
+
+export const { setLang } = langSlice.actions;
+export default langSlice.reducer;

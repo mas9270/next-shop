@@ -9,5 +9,9 @@
   "usernameNotValid": "username is not valid",
   "passwordNotValid": "password is not valid",
   "loginForm": "sign in form",
-  "registerForm": "sign up form"
+  "registerForm": "sign up form",
+  "home": "home",
+  "products": "products",
+  "aboutUs": "about us",
+  "contactUs": "contact us"
 }

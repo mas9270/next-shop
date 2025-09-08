@@ -9,5 +9,9 @@
   "usernameNotValid": "نام کاربری معتبر نمی باشد",
   "passwordNotValid": "کلمه عبور معتبر نمی باشد",
   "loginForm": "فرم ورود",
-  "registerForm": "فرم ثبت نام"
+  "registerForm": "فرم ثبت نام",
+  "home": "خانه",
+  "products": "محصولات",
+  "aboutUs": "درباره ما",
+  "contactUs": "ارتباط با ما"
 }

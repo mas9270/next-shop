@@ -9,6 +9,7 @@ export async function generateAccessToken(userInfo: {
   username: string;
   email: string;
   role: string;
+  profilePicUrl: string;
 }) {
   return await new SignJWT({ ...userInfo })
     .setProtectedHeader({ alg: "HS256" })

@@ -1,22 +1,22 @@
 export const appRoutes = [
   {
     path: "/",
-    title: "خانه",
+    title: "home",
     icon: "home",
   },
   {
     path: "/products",
-    title: "محصولات",
+    title: "products",
     icon: "products",
   },
   {
     path: "/about-us",
-    title: "درباره ما",
+    title: "about-us",
     icon: "aboutUs",
   },
   {
     path: "/contact-us",
-    title: "ارتباط با ما",
+    title: "contact-us",
     icon: "contact-us",
   }
 ];

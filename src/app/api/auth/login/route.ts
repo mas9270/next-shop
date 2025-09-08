@@ -31,6 +31,7 @@ export async function POST(req: Request) {
       username: user.username,
       email: user.email,
       role: user.role,
+      profilePicUrl: user.profilePicUrl || "",
     });
 
     const response = NextResponse.json(
