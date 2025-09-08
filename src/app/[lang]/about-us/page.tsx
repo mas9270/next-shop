@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 
 export default function AboutUsPage() {
   return (
@@ -45,7 +46,7 @@ export default function AboutUsPage() {
       </section>
 
       {/* داستان و مأموریت */}
-      <section className="max-w-5xl mx-auto mt-28 flex flex-col md:flex-row gap-12 items-center">
+      <section className="max-w-7xl mx-auto mt-28 flex flex-col md:flex-row gap-12 items-center">
         <div className="md:w-1/2">
           <h2 className="text-3xl sm:text-4xl font-extrabold mb-4">
             داستان ما
@@ -73,14 +74,25 @@ export default function AboutUsPage() {
         <h2 className="text-4xl font-extrabold text-center mb-12">تیم ما</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-12">
           {[
-            { name: "مسعود", role: "توسعه دهند" },
-            { name: "رسا", role: "مدیر" },
+            { name: "مسعود", role: "مدیر بخش توسعه", src: "/images/programer.jpg" },
+            { name: "رسا", role: "مدیر سازمان", src: "/images/modir1.jpg" },
           ].map((member, idx) => (
             <div
               key={idx}
               className="p-6 rounded-xl shadow-sm hover:shadow-lg transition-shadow duration-300 text-center"
             >
-              <div className="w-32 h-32 mx-auto rounded-full bg-gray-200 dark:bg-gray-700 mb-4"></div>
+              <div className="w-32 h-32 rounded-full overflow-hidden">
+                <Image
+                  src={member.src}
+                  alt="User Avatar"
+                  quality={100}
+                  width={200}
+                  height={200}
+                  className={`object-cover w-full h-full ${
+                    member.name === "مسعود" ? "scale-130" : ""
+                  }`}
+                />
+              </div>
               <h3 className="text-xl font-bold">{member.name}</h3>
               <p className="text-gray-600 dark:text-gray-300">{member.role}</p>
             </div>

@@ -7,7 +7,7 @@ import NavLink from "../custom/navLink";
 export default function header() {
   return (
     <header className="w-full py-3 shadow flex justify-center dark:shadow-gray-700">
-      <nav className="w-full flex justify-between max-w-5xl px-3">
+      <nav className="w-full flex justify-between max-w-7xl px-3">
         <div className="flex gap-5">
           <Image
             src={"/images/logo2.png"}
