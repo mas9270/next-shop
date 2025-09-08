@@ -1,13 +1,15 @@
+"use client";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import Image from "next/image";
 import Link from "next/link";
-
 import { products } from "@/constants/productsList";
+import { useAppDispatch } from "@/store/hooks";
+import { addToCart } from "@/store/slices/cart";
 
 export default function ProductPage({ params }: { params: { id: string } }) {
   const product = products.find((p) => p.id === Number(params.id));
-
+  const dispatch = useAppDispatch();
   if (!product) {
     return <p className="text-center mt-10">محصول یافت نشد</p>;
   }
@@ -46,7 +48,14 @@ export default function ProductPage({ params }: { params: { id: string } }) {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button className="flex-1">افزودن به سبد خرید</Button>
+              <Button
+                className="flex-1"
+                onClick={() => {
+                  dispatch(addToCart(product));
+                }}
+              >
+                افزودن به سبد خرید
+              </Button>
               <Link href="/products" className="flex-1">
                 <Button variant="outline" className="w-full">
                   بازگشت به محصولات
