@@ -4,9 +4,9 @@ import Layout from "@/components/layout/layout";
 import { ThemeProvider } from "@/providers/themeProvider";
 import StoreProvider from "@/providers/storeProvider";
 import "../globals.css";
-import 'swiper/css';
-import 'swiper/css/pagination';
-import 'swiper/css/navigation';
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
 
 const iranSanse = localFont({
   src: [
@@ -82,8 +82,7 @@ export function generateStaticParams() {
 export default async function RootLayout({
   children,
   params,
-}: 
-Readonly<{
+}: Readonly<{
   children: React.ReactNode;
   params: { lang: Lang };
 }>) {
@@ -92,7 +91,8 @@ Readonly<{
   return (
     <html
       lang={lang}
-      dir={lang === "fa" ? "rtl" : "ltr"}
+      // dir={lang === "fa" ? "rtl" : "ltr"}
+      dir={"rtl"}
       suppressHydrationWarning
     >
       <body className={`${iranSanse.className} `}>

@@ -107,52 +107,56 @@ export default function Products() {
       )}
 
       {/* Grid محصولات */}
-      {!loading && productsFilter.currentProducts.length === 0 ? (
-        <div className="w-full flex justify-center">
-          محصولی برای نمایش موجود نیست
-        </div>
-      ) : (
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {productsFilter.currentProducts.map((product, index) => {
-            return (
-              <Card key={index} className="flex flex-col">
-                <CardHeader>
-                  <Image
-                    src={product.image}
-                    alt={product.title}
-                    width={400}
-                    height={250}
-                    className="w-full h-48 object-cover rounded-lg"
-                  />
-                  <CardTitle className="mt-3">{product.title}</CardTitle>
-                </CardHeader>
-                <CardContent className="flex flex-col justify-between flex-1">
-                  <p className="text-sm text-muted-foreground mb-2">
-                    {product.description}
-                  </p>
-                  <p className="font-semibold text-primary mb-4">
-                    {product.price.toLocaleString("fa-IR")} تومان
-                  </p>
-                  <div className="flex gap-2 mt-auto">
-                    <Link href={`/products/${product.id}`} passHref>
-                      <Button variant="outline" className="flex-1">
-                        نمایش محصول
-                      </Button>
-                    </Link>
-                    <Button
-                      className="flex-1"
-                      onClick={() => {
-                        dispatch(addToCart(product));
-                      }}
-                    >
-                      افزودن به سبد
-                    </Button>
-                  </div>
-                </CardContent>
-              </Card>
-            );
-          })}
-        </div>
+      {!loading && (
+        <>
+          {productsFilter.currentProducts.length === 0 ? (
+            <div className="w-full flex justify-center">
+              محصولی برای نمایش موجود نیست
+            </div>
+          ) : (
+            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              {productsFilter.currentProducts.map((product, index) => {
+                return (
+                  <Card key={index} className="flex flex-col">
+                    <CardHeader>
+                      <Image
+                        src={product.image}
+                        alt={product.title}
+                        width={400}
+                        height={250}
+                        className="w-full h-48 object-cover rounded-lg"
+                      />
+                      <CardTitle className="mt-3">{product.title}</CardTitle>
+                    </CardHeader>
+                    <CardContent className="flex flex-col justify-between flex-1">
+                      <p className="text-sm text-muted-foreground mb-2">
+                        {product.description}
+                      </p>
+                      <p className="font-semibold text-primary mb-4">
+                        {product.price.toLocaleString("fa-IR")} تومان
+                      </p>
+                      <div className="flex gap-2 mt-auto">
+                        <Link href={`/products/${product.id}`} passHref>
+                          <Button variant="outline" className="flex-1">
+                            نمایش محصول
+                          </Button>
+                        </Link>
+                        <Button
+                          className="flex-1"
+                          onClick={() => {
+                            dispatch(addToCart(product));
+                          }}
+                        >
+                          افزودن به سبد
+                        </Button>
+                      </div>
+                    </CardContent>
+                  </Card>
+                );
+              })}
+            </div>
+          )}
+        </>
       )}
 
       {/* Pagination */}
