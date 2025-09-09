@@ -7,7 +7,6 @@ export default function ProductsPage() {
     <Suspense
       fallback={
         <div className="w-full h-full flex justify-center items-center">
-          {" "}
           <Loader2 className="animate-spin" />
         </div>
       }

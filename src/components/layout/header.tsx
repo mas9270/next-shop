@@ -1,9 +1,10 @@
 import Image from "next/image";
-import LanguageSwitcher from "../custom/LanguageSwitcher";
+// import LanguageSwitcher from "../custom/LanguageSwitcher";
 import { ToggleTheme } from "../custom/toggleTheme";
 import UserConfig from "../custom/userConfig";
 import NavLink from "../custom/navLink";
 import CartIcon from "../custom/cartIcon";
+import SearchBox from "../custom/searchBox";
 
 export default function header() {
   return (
@@ -17,13 +18,14 @@ export default function header() {
             height={50}
             className="rounded-[100%] bg-white"
           />
-           <NavLink />
+          <NavLink />
         </div>
         <div className="flex gap-2 items-center">
-          <CartIcon/>
+          <SearchBox />
+          <CartIcon />
           <ToggleTheme />
           {/* <LanguageSwitcher /> */}
-          <UserConfig  />
+          <UserConfig />
         </div>
       </nav>
     </header>
