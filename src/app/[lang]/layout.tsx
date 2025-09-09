@@ -100,7 +100,7 @@ Readonly<{
           <ThemeProvider
             attribute="class"
             defaultTheme="dark"
-            enableSystem
+            // enableSystem
             disableTransitionOnChange
           >
             <Layout lang={lang}>{children}</Layout>

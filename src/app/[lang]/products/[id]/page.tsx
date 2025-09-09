@@ -1,4 +1,5 @@
 "use client";
+import { use } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import Image from "next/image";
@@ -7,8 +8,13 @@ import { products } from "@/constants/productsList";
 import { useAppDispatch } from "@/store/hooks";
 import { addToCart } from "@/store/slices/cart";
 
-export default function ProductPage({ params }: { params: { id: string } }) {
-  const product = products.find((p) => p.id === Number(params.id));
+export default function ProductPage({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}) {
+  const { id } = use(params);
+  const product = products.find((p) => p.id === Number(id));
   const dispatch = useAppDispatch();
   if (!product) {
     return <p className="text-center mt-10">محصول یافت نشد</p>;
@@ -19,14 +25,14 @@ export default function ProductPage({ params }: { params: { id: string } }) {
       <Card className="overflow-hidden shadow-lg">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* تصویر محصول */}
-          <div className="relative w-full h-80 md:h-full rounded-lg overflow-hidden">
+          <div className="relative w-full h-80 md:h-full rounded-lg overflow-hidden px-3">
             <Image
               src={product.image}
               alt={product.title}
               fill
               quality={100}
-              className="object-cover"
-              sizes="(max-width: 768px) 100vw, 50vw"
+              className="object-cover w-full px-4 rounded-3xl"
+              // sizes="(max-width: 768px) 100vw, 50vw"
             />
           </div>
 
